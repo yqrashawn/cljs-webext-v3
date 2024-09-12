@@ -7,7 +7,7 @@
   (let [dev? (= (System/getenv "DEV") "true")]
     (cond-> {:manifest_version          3
              :version                   "1.0.0"
-             :permissions               [:devtools]
+             :permissions               [:devtools :activeTab :scripting :storage]
              :host_permissions          []
              :optional_host_permissions ["*://*/*"]
              :web_accessible_resources  []

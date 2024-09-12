@@ -1,9 +1,10 @@
 (ns dt.core
   (:require
+   app.dt
    ext.devtools
    [lambdaisland.glogi :as log]
    setup-log))
 
 (defn init! []
   (log/info :info "devtool")
-  (ext.devtools/create-panel))
+  (app.dt/init!))

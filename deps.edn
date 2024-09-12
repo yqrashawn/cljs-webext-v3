@@ -1,6 +1,7 @@
 {:deps {org.clojure/clojure    {:mvn/version "RELEASE"}
         reagent/reagent        {:mvn/version "RELEASE"}
         re-frame/re-frame      {:mvn/version "RELEASE"}
+        datascript/datascript  {:mvn/version "RELEASE"}
         day8.re-frame/http-fx  {:mvn/version "RELEASE"}
         com.lambdaisland/glogi {:mvn/version "RELEASE"}
         dev.weavejester/medley {:mvn/version "RELEASE"}

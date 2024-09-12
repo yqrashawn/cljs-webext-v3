@@ -6,7 +6,8 @@
  :build-defaults {:devtools         {:devtools-url          "http://localhost:8063"
                                      :ignore-warnings       true
                                      :use-document-protocol true}
-                  :compiler-options {:warnings {:fn-deprecated false}}}
+                  :compiler-options {:warnings {:fn-deprecated false}
+                                     :externs  ["datascript/externs.js"]}}
 
  :builds
  {:bg    {:target     :esm
@@ -16,11 +17,10 @@
                        :main   {:init-fn bg.core/init! :depends-on #{:shared}}}
           :dev        {:closure-defines {shadow.cljs.devtools.client.env/devtools-url
                                          "http://localhost:8063"}}}
-  :cs    {:target     :esm
-          :runtime    :custom
+  :cs    {:target     :browser
           :output-dir "resources/public/cs/js"
-          :modules    {:shared {:entries []}
-                       :main   {:init-fn cs.core/init! :depends-on #{:shared}}}
+          :asset-path "/public/js/cs"
+          :modules    {:main {:init-fn cs.core/init!}}
           :dev        {:closure-defines {shadow.cljs.devtools.client.env/devtools-url
                                          "http://localhost:8063"}}}
   :popup {:target     :esm

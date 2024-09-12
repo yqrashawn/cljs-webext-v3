@@ -1,9 +1,6 @@
 (ns ext.devtools
   (:require
-   ["webextension-polyfill" :as browser]
-   [oops.core :as oops]
-   [promesa.core :as p]
-   [taoensso.encore :as enc]))
+   ["webextension-polyfill" :as browser]))
 
 (defn create-panel []
   (browser/devtools.panels.create
