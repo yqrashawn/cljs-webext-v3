@@ -1,1 +1,16 @@
-{}
+{:deps {org.clojure/clojure    {:mvn/version "RELEASE"}
+        reagent/reagent        {:mvn/version "RELEASE"}
+        re-frame/re-frame      {:mvn/version "RELEASE"}
+        day8.re-frame/http-fx  {:mvn/version "RELEASE"}
+        com.lambdaisland/glogi {:mvn/version "RELEASE"}
+        dev.weavejester/medley {:mvn/version "RELEASE"}
+        com.taoensso/encore    {:mvn/version "RELEASE"}
+        binaryage/oops         {:mvn/version "RELEASE"}
+        funcool/promesa        {:mvn/version "RELEASE"}
+        thheller/shadow-cljs   {:mvn/version "RELEASE"}}
+
+ :aliases {:dev {:extra-deps
+                 {com.teknql/shadow-cljs-tailwind-jit {:mvn/version "RELEASE"}
+                  binaryage/devtools                  {:mvn/version "RELEASE"}
+                  djblue/portal                       {:mvn/version "RELEASE"}}
+                 :extra-paths ["src" "dev" "target"]}}}

@@ -1,1 +1,39 @@
-{}
+{:deps {:aliases [:dev]}
+
+ :http     {:port 8063}
+ :dev-http {8064 ["resources/public"]}
+
+ :build-defaults {:devtools         {:devtools-url          "http://localhost:8063"
+                                     :ignore-warnings       true
+                                     :use-document-protocol true}
+                  :compiler-options {:warnings {:fn-deprecated false}}}
+
+ :builds
+ {:bg    {:target     :esm
+          :runtime    :browser
+          :output-dir "resources/public/bg/js"
+          :modules    {:shared {:entries []}
+                       :main   {:init-fn bg.core/init! :depends-on #{:shared}}}
+          :dev        {:closure-defines {shadow.cljs.devtools.client.env/devtools-url
+                                         "http://localhost:8063"}}}
+  :cs    {:target     :esm
+          :runtime    :custom
+          :output-dir "resources/public/cs/js"
+          :modules    {:shared {:entries []}
+                       :main   {:init-fn cs.core/init! :depends-on #{:shared}}}
+          :dev        {:closure-defines {shadow.cljs.devtools.client.env/devtools-url
+                                         "http://localhost:8063"}}}
+  :popup {:target     :esm
+          :runtime    :browser
+          :output-dir "resources/public/popup/js"
+          :modules    {:shared {:entries []}
+                       :main   {:init-fn popup.core/init! :depends-on #{:shared}}}
+          :dev        {:closure-defines {shadow.cljs.devtools.client.env/devtools-url
+                                         "http://localhost:8063"}}}
+  :dt    {:target     :esm
+          :runtime    :browser
+          :output-dir "resources/public/dt/js"
+          :modules    {:shared {:entries []}
+                       :main   {:init-fn dt.core/init! :depends-on #{:shared}}}
+          :dev        {:closure-defines {shadow.cljs.devtools.client.env/devtools-url
+                                         "http://localhost:8063"}}}}}

@@ -1,1 +1,11 @@
-{}
+{:paths ["src"]
+
+ :tasks
+ {manifest       {:requires ([manifest])
+                  :task     (manifest/write)}
+  watch          {:task (run '-watch {:parallel true})}
+  -watch         {:depends [watch:js watch:manifest]}
+  watch:js       (shell "sstart watch bg cs popup dt")
+  watch:manifest {:requires ([manifest])
+                  :depends  [manifest]
+                  :task     (manifest/watch)}}}
