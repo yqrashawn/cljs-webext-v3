@@ -6,4 +6,4 @@
   (browser/devtools.panels.create
    "Portal"
    "images/icon-48.png"
-   "dt/devtools.html"))
+   "/dt/devtools-panel.html"))

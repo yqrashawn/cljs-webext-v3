@@ -247,3 +247,4 @@ dist
 /.shadow-cljs/
 
 /resources/public/*/js/*
+/keystore.jks

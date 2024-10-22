@@ -2,7 +2,6 @@
   (:require
    [datascript.core :as d]
    ext.storage
-   [lambdaisland.glogi :as log]
    [oops.core :as oops]
    [promesa.core :as p]))
 
@@ -38,7 +37,7 @@
   (d/pull (d/db conn) pattern eids))
 
 (defn t! [txs]
-  (let [rst (d/transact! conn (log/spy txs))]
+  (let [rst (d/transact! conn txs)]
     rst))
 
 (comment

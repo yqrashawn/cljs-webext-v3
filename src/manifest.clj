@@ -14,11 +14,12 @@
 
              :devtools_page "dt/devtools.html"
              :content_scripts [{:matches           ["<all_urls>"]
+                                ;; :matches           ["localhost"]
                                 :run_at            "document_start"
                                 :match_about_blank true
                                 :js                ["cs/js/main.js"]}]
              :background      {:service_worker "bg/js/main.js"
-                               ;; :scripts ["bg/js/main.js"]
+                               :scripts ["bg/js/main.js"]
                                :type :module}
              :name            "cljs-webext"
              :description     "cljs web extension"
@@ -62,6 +63,7 @@
 
 (defn write []
   (load-file "src/manifest.clj")
+  (println "Update resources/public/manifest.json")
   (let [json-str (json/generate-string (generate) {:pretty true})]
     (spit "resources/public/manifest.json" json-str)))
 
